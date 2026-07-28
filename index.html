@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="A little stack of questions, for us." />
+    <meta name="theme-color" content="#FBF7F0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <title>Things I Still Want to Ask You</title>
+    <script>
+      // Pick the light before first paint so there is no flash of the wrong paper.
+      try {
+        var saved = localStorage.getItem('light')
+        var mode = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'lamp' : 'day')
+        document.documentElement.dataset.light = mode
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', mode === 'lamp' ? '#241E19' : '#FBF7F0')
+      } catch (e) {
+        document.documentElement.dataset.light = 'day'
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

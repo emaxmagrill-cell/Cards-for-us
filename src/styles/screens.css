@@ -1,0 +1,422 @@
+/* ==========================================================================
+   screens.css — the three pages
+   ========================================================================== */
+
+.topbar {
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.4rem;
+  margin-bottom: var(--s-6);
+}
+
+/* ==========================================================================
+   Home
+   ========================================================================== */
+
+.masthead {
+  display: grid;
+  gap: var(--s-6);
+  margin-bottom: var(--s-8);
+}
+
+.masthead__photo {
+  justify-self: center;
+}
+
+@media (min-width: 46rem) {
+  .masthead {
+    grid-template-columns: minmax(0, 1.35fr) auto;
+    gap: var(--s-8);
+    align-items: center;
+  }
+
+  .masthead__photo {
+    justify-self: end;
+  }
+}
+
+.kicker {
+  margin-bottom: 0.3rem;
+  font-size: var(--step-0);
+  color: var(--rose-deep);
+}
+
+.masthead__title {
+  max-width: 16ch;
+  margin-bottom: var(--s-4);
+  font-size: var(--step-4);
+  text-wrap: balance;
+}
+
+.masthead__intro {
+  max-width: 33ch;
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* A gold stroke pulled under the last two words, the way you would underline
+   something with a marker: overshooting at both ends, not quite level. */
+.swash {
+  position: relative;
+  white-space: nowrap;
+}
+
+.swash::after {
+  content: '';
+  position: absolute;
+  right: -1.5%;
+  bottom: -0.14em;
+  left: -1.5%;
+  height: 0.22em;
+  pointer-events: none;
+  background: no-repeat center / 100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M4 9.2C41 3.6 79 11.2 117 6.4 143 3.2 170 8.4 196 5' stroke='%23D4A857' stroke-width='3.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* --- The shelf ----------------------------------------------------------- */
+
+.stacks__label {
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  margin-bottom: var(--s-5);
+}
+
+.stacks__label h2 {
+  flex: none;
+  font-size: var(--step-0);
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+.stacks__rule {
+  flex: 1;
+  height: 5px;
+  opacity: 0.6;
+  background: no-repeat center / 100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 6' preserveAspectRatio='none'%3E%3Cpath d='M1 4C40 1.6 80 4.6 120 3c40-1.6 80 1.8 120 .2 25-1 45 .4 59-.2' stroke='%23A7B79B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+.collage {
+  display: grid;
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.15rem, 4.5vw, 1.8rem);
+  padding: 0;
+  list-style: none;
+}
+
+.collage__cell {
+  display: flex;
+}
+
+.collage__cell.is-wide {
+  grid-column: span 2;
+}
+
+@media (min-width: 46rem) {
+  .collage {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.7rem;
+  }
+}
+
+/* --- A pack of cards ----------------------------------------------------- */
+
+.pack {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 8.6rem;
+  padding: 1.2rem 1rem 0.95rem;
+  color: var(--ink);
+  text-align: left;
+  background-color: var(--card);
+  background-image: linear-gradient(168deg, var(--card-sheen), transparent 58%);
+  border: 1px solid var(--card-edge);
+  box-shadow: var(--lift-2);
+  transform: rotate(var(--tilt));
+  transition:
+    transform 340ms var(--ease-soft),
+    box-shadow 340ms var(--ease-soft);
+}
+
+.pack:hover,
+.pack:focus-visible {
+  transform: rotate(calc(var(--tilt) * 0.22)) translateY(-4px) scale(1.012);
+  box-shadow: var(--lift-3);
+}
+
+.pack:active {
+  transform: rotate(calc(var(--tilt) * 0.5)) translateY(-1px) scale(0.996);
+  box-shadow: var(--lift-1);
+}
+
+.pack__glyph {
+  margin-bottom: 0.2rem;
+  color: var(--tone);
+}
+
+.pack__name {
+  font-size: var(--step-1);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.pack__desc {
+  font-size: var(--step--1);
+  line-height: 1.4;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.pack__count {
+  padding-top: 0.6rem;
+  margin-top: auto;
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.is-wide .pack {
+  min-height: 9.6rem;
+  padding: 1.4rem 1.3rem 1.1rem;
+}
+
+.is-wide .pack__name {
+  font-size: var(--step-2);
+}
+
+.is-wide .pack__desc {
+  max-width: 36ch;
+  font-size: var(--step-0);
+}
+
+/* A note taped into the gap at the end of the page. */
+.scrap {
+  position: relative;
+  flex: 1;
+  padding: 1.15rem 1.4rem;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  text-align: center;
+  background: var(--gold-wash);
+  border-radius: 5px 3px 6px 4px;
+  box-shadow: var(--lift-1);
+  transform: rotate(var(--tilt));
+}
+
+/* ==========================================================================
+   Card view
+   ========================================================================== */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - 11rem);
+  padding-top: var(--s-2);
+}
+
+.deck {
+  position: relative;
+  width: min(100%, 30rem);
+}
+
+/* The rest of the stack, sitting under the top card. */
+.deck__under {
+  position: absolute;
+  inset: 0;
+  background: var(--paper-shade);
+  border: 1px solid var(--card-edge);
+  border-radius: 18px 15px 19px 16px;
+  box-shadow: var(--lift-1);
+}
+
+.deck__under--a {
+  transform: rotate(-2.6deg) translate(-4px, 7px);
+}
+
+.deck__under--b {
+  transform: rotate(3.4deg) translate(5px, 13px);
+}
+
+.qcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: min(19rem, 52svh);
+  padding: 2.2rem 1.6rem 1.5rem;
+  cursor: pointer;
+  background-color: var(--card);
+  background-image: linear-gradient(165deg, var(--card-sheen), transparent 55%);
+  border: 1px solid var(--card-edge);
+  box-shadow: var(--lift-3);
+  transform: rotate(var(--tilt));
+  animation: deal var(--slow) var(--ease-settle) backwards;
+}
+
+@keyframes deal {
+  from {
+    opacity: 0;
+    transform: translate3d(30px, 18px, 0) rotate(calc(var(--tilt) + 4.5deg)) scale(0.945);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--tilt)) scale(1);
+  }
+}
+
+.qcard__pack {
+  margin-bottom: 0.9rem;
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.qcard__text {
+  max-width: 21ch;
+  margin-block: auto;
+  font-size: var(--step-2);
+  font-weight: 500;
+  line-height: 1.32;
+  letter-spacing: -0.004em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.qcard__text.is-short {
+  font-size: var(--step-3);
+  max-width: 15ch;
+}
+
+.qcard__text.is-long {
+  max-width: 24ch;
+  font-size: calc(var(--step-2) * 0.88);
+}
+
+.qcard__stamp {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+}
+
+.qcard__watermark {
+  position: absolute;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  color: var(--tone);
+  opacity: 0.15;
+}
+
+.cards__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: center;
+  width: 100%;
+}
+
+.progress {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+.progress__rule {
+  width: 5.5rem;
+  height: 2px;
+  overflow: hidden;
+  background: var(--ink-ghost);
+  border-radius: 2px;
+}
+
+.progress__rule::after {
+  content: '';
+  display: block;
+  width: calc(var(--p) * 100%);
+  height: 100%;
+  background: var(--gold-deep);
+  transition: width var(--slow) var(--ease-settle);
+}
+
+/* Hint and reshuffle notice share one line, so neither shifts the layout. */
+.cards__footnote {
+  position: relative;
+  width: 100%;
+  height: 1.5em;
+  font-size: var(--step--1);
+  text-align: center;
+}
+
+.cards__hint,
+.cards__notice {
+  position: absolute;
+  inset: 0;
+  transition: opacity 380ms var(--ease-soft);
+}
+
+.cards__hint {
+  color: var(--ink-faint);
+}
+
+.cards__hint.is-off {
+  opacity: 0;
+}
+
+.cards__notice {
+  color: var(--rose-deep);
+  opacity: 0;
+}
+
+.cards__notice.is-on {
+  opacity: 1;
+}
+
+.pointer-only {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touch-only {
+    display: none;
+  }
+
+  .pointer-only {
+    display: inline;
+  }
+}
+
+/* --- Nothing in the stack ------------------------------------------------ */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: center;
+  max-width: 30rem;
+  padding-top: var(--s-7);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.empty__mark {
+  color: var(--tone);
+}
+
+.empty__title {
+  font-size: var(--step-2);
+}
+
+.empty__text {
+  margin-bottom: var(--s-3);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}

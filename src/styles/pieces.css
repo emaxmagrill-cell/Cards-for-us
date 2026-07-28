@@ -1,0 +1,237 @@
+/* ==========================================================================
+   pieces.css — the small physical things: tape, ink, corners, stamps
+   ========================================================================== */
+
+/* --- Washi tape ---------------------------------------------------------- */
+
+.tape {
+  position: absolute;
+  left: var(--tape-x);
+  top: var(--tape-y);
+  z-index: 3;
+  width: var(--tape-w);
+  height: var(--tape-h);
+  translate: -50% 0;
+  rotate: var(--tape-tilt);
+  pointer-events: none;
+  background-color: color-mix(in oklab, var(--tape-tone) var(--tape-alpha), transparent);
+  background-image: repeating-linear-gradient(
+    46deg,
+    transparent 0 5px,
+    var(--tape-stripe) 5px 10px
+  );
+  mix-blend-mode: var(--tape-blend);
+  box-shadow: 0 1px 2px oklch(37.6% 0.0225 64.3 / 0.13);
+}
+
+/* --- Drawn glyphs -------------------------------------------------------- */
+
+.glyph {
+  flex: none;
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* --- Polaroid ------------------------------------------------------------ */
+
+.polaroid {
+  --tilt: -2.4deg;
+  position: relative;
+  width: min(58vw, 14.5rem);
+  padding: 0.65rem 0.65rem 0;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 3px;
+  box-shadow: var(--lift-2);
+  rotate: var(--tilt);
+}
+
+.polaroid__frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-shade);
+}
+
+.polaroid__drawing,
+.polaroid__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid__photo {
+  opacity: 0;
+  transition: opacity 800ms var(--ease-soft);
+}
+
+.polaroid__photo.is-ready {
+  opacity: 1;
+}
+
+/* Little dark triangles holding the photo into the album page. */
+.polaroid__corner {
+  position: absolute;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  background: color-mix(in oklab, var(--ink) 58%, transparent);
+}
+
+.polaroid__corner--tl {
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.polaroid__corner--br {
+  right: 0;
+  bottom: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.polaroid__caption {
+  padding: 0.55rem 0.2rem 0.7rem;
+  font-size: var(--step-0);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* --- Lamp toggle --------------------------------------------------------- */
+
+.lamp {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 0.35rem;
+  margin-right: -0.35rem;
+  color: var(--ink-soft);
+}
+
+.lamp__paper {
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: 10px 8px 11px 9px;
+  box-shadow: var(--lift-1);
+  rotate: -3deg;
+  transition:
+    rotate var(--beat) var(--ease-soft),
+    translate var(--beat) var(--ease-soft);
+}
+
+.lamp:hover .lamp__paper,
+.lamp:focus-visible .lamp__paper {
+  translate: 0 -1px;
+  rotate: 2.5deg;
+}
+
+.lamp:active .lamp__paper {
+  translate: 0 1px;
+}
+
+.lamp__label {
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
+@media (max-width: 26rem) {
+  .lamp__label {
+    display: none;
+  }
+}
+
+/* --- Buttons ------------------------------------------------------------- */
+
+.pill {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.3rem;
+  padding-inline: 1.7rem;
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--on-accent);
+  letter-spacing: 0.005em;
+  background: var(--rose-deep);
+  border-radius: 999px;
+  box-shadow: var(--lift-2);
+  rotate: -0.8deg;
+  transition:
+    translate var(--beat) var(--ease-soft),
+    box-shadow var(--beat) var(--ease-soft),
+    rotate var(--beat) var(--ease-soft);
+}
+
+.pill:hover,
+.pill:focus-visible {
+  translate: 0 -2px;
+  rotate: -0.6deg;
+  box-shadow: var(--lift-3);
+}
+
+.pill:active {
+  translate: 0 1px;
+  rotate: 0.4deg;
+  box-shadow: var(--lift-1);
+}
+
+.pill__arrow {
+  transition: translate var(--beat) var(--ease-soft);
+}
+
+.pill:hover .pill__arrow {
+  translate: 3px 0;
+}
+
+/* The way back. Deliberately quiet: a pencil note, not a nav bar. */
+.back {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.45rem 0.3rem;
+  margin-left: -0.3rem;
+  font-family: var(--font-hand);
+  font-size: var(--step-0);
+  color: var(--ink-faint);
+  transition: color var(--beat) var(--ease-soft);
+}
+
+.back svg {
+  transition: translate var(--beat) var(--ease-soft);
+}
+
+.back:hover,
+.back:focus-visible {
+  color: var(--rose-deep);
+}
+
+.back:hover svg {
+  translate: -3px 0;
+}
+
+/* --- Stamp --------------------------------------------------------------- */
+
+.stamp {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.24rem 0.7rem 0.28rem;
+  font-family: var(--font-hand);
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--tone, var(--rose-deep));
+  letter-spacing: 0.015em;
+  background: var(--stamp-fill);
+  border: 1.5px solid color-mix(in oklab, var(--tone, var(--rose-deep)) 45%, transparent);
+  border-radius: 999px;
+  rotate: -3.5deg;
+}

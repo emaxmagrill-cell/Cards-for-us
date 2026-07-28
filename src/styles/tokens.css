@@ -1,0 +1,165 @@
+/* ==========================================================================
+   tokens.css — the physical properties of the thing
+
+   The palette comes from the brief, converted to OKLCH so that every tint and
+   shade is derived from a real lightness value instead of eyeballed hex codes.
+
+     paper  #FBF7F0   rose  #C97B84   sage  #A7B79B
+     ink    #4A3F35   gold  #D4A857
+
+   Two lights, not two themes: `day` is paper on a table by a window, `lamp` is
+   the same paper at midnight with one warm bulb on. Long distance means one of
+   them is almost always awake in the dark, and Late Night Talks is a whole
+   category, so the dark variant is part of the object rather than a checkbox.
+   ========================================================================== */
+
+:root {
+  /* --- Type ------------------------------------------------------------- */
+  --font-display: 'Vollkorn Variable', Vollkorn, Georgia, 'Times New Roman', serif;
+  --font-text: 'Alegreya Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-hand: Kalam, 'Bradley Hand', 'Segoe Print', cursive;
+
+  /* 1.26 ratio. Fluid, so a long question fills a phone and never a desktop. */
+  --step--2: clamp(0.72rem, 0.70rem + 0.10vw, 0.78rem);
+  --step--1: clamp(0.84rem, 0.80rem + 0.20vw, 0.94rem);
+  --step-0: clamp(1rem, 0.96rem + 0.22vw, 1.13rem);
+  --step-1: clamp(1.26rem, 1.17rem + 0.45vw, 1.55rem);
+  --step-2: clamp(1.59rem, 1.42rem + 0.82vw, 2.13rem);
+  --step-3: clamp(2rem, 1.72rem + 1.4vw, 2.93rem);
+  --step-4: clamp(2.52rem, 2.05rem + 2.35vw, 4.03rem);
+
+  /* --- Space ------------------------------------------------------------ */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: clamp(3.5rem, 2rem + 7vw, 6rem);
+
+  --measure: 32ch;
+
+  /* A stamp presses into the paper, so its fill darkens toward the page rather
+     than tinting toward its own ink. Resolves per light via --paper. */
+  --stamp-fill: color-mix(in oklab, var(--paper) 55%, transparent);
+
+  /* --- Motion ----------------------------------------------------------- */
+  /* Out-expo and out-quart. Nothing here bounces; paper does not bounce. */
+  --ease-settle: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --beat: 220ms;
+  --slow: 560ms;
+
+  /* --- Texture ---------------------------------------------------------- */
+  /* Fine tooth of the paper. Tiled 220px so the repeat never becomes a pattern. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='0.55'/%3E%3C/svg%3E");
+  /* Long streaks: pressed pulp fibre, stretched along one axis. */
+  --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.028 0.55' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Daylight
+   ========================================================================== */
+
+:root,
+:root[data-light='day'] {
+  color-scheme: light;
+
+  --paper: oklch(97.7% 0.0102 81.8);
+  --paper-shade: oklch(94.2% 0.0148 80);
+  --paper-edge: oklch(88% 0.019 78);
+  --card: oklch(99.2% 0.0055 85);
+  --card-edge: oklch(90.5% 0.0135 80);
+
+  --ink: oklch(37.6% 0.0225 64.3);
+  --ink-soft: oklch(51% 0.021 64);
+  --ink-faint: oklch(55% 0.019 64);
+  /* Decorative only: the progress track. Never used for text. */
+  --ink-ghost: oklch(82% 0.012 70);
+
+  --rose: oklch(66.8% 0.0977 12.6);
+  --rose-deep: oklch(52% 0.105 12.6);
+  --rose-wash: oklch(93.5% 0.026 12.6);
+
+  --sage: oklch(75.9% 0.0429 131.8);
+  --sage-deep: oklch(54.5% 0.052 133);
+  --sage-wash: oklch(94% 0.02 131.8);
+
+  --gold: oklch(75.6% 0.1119 81);
+  --gold-deep: oklch(55.5% 0.105 76);
+  --gold-wash: oklch(94.5% 0.036 84);
+
+  --grain-blend: multiply;
+  --grain-strength: 0.26;
+  --fibre-strength: 0.17;
+  --tape-alpha: 42%;
+  --tape-stripe: oklch(100% 0 0 / 0.16);
+  --tape-blend: multiply;
+
+  --lift-1: 0 1px 1px oklch(37.6% 0.0225 64.3 / 0.05),
+    0 2px 5px -2px oklch(37.6% 0.0225 64.3 / 0.1);
+  --lift-2: 0 1px 2px oklch(37.6% 0.0225 64.3 / 0.06),
+    0 8px 16px -6px oklch(37.6% 0.0225 64.3 / 0.14),
+    0 20px 36px -24px oklch(37.6% 0.0225 64.3 / 0.2);
+  --lift-3: 0 2px 3px oklch(37.6% 0.0225 64.3 / 0.07),
+    0 14px 28px -8px oklch(37.6% 0.0225 64.3 / 0.16),
+    0 34px 60px -30px oklch(37.6% 0.0225 64.3 / 0.28);
+
+  --vignette: oklch(37.6% 0.0225 64.3 / 0.05);
+  --glow: transparent;
+
+  /* Text sitting on a filled accent. */
+  --on-accent: oklch(98.5% 0.008 84);
+  /* Light falling across a sheet of card stock. */
+  --card-sheen: oklch(100% 0 0 / 0.55);
+}
+
+/* ==========================================================================
+   Lamplight — same paper, one warm bulb, 1am
+   ========================================================================== */
+
+:root[data-light='lamp'] {
+  color-scheme: dark;
+
+  --paper: oklch(21.5% 0.0135 62);
+  --paper-shade: oklch(17.5% 0.012 60);
+  --paper-edge: oklch(29% 0.016 64);
+  --card: oklch(27.5% 0.0165 66);
+  --card-edge: oklch(35% 0.02 68);
+
+  --ink: oklch(91% 0.019 82);
+  --ink-soft: oklch(78% 0.019 78);
+  --ink-faint: oklch(65% 0.017 74);
+  --ink-ghost: oklch(45% 0.015 70);
+
+  --rose: oklch(74% 0.083 14);
+  --rose-deep: oklch(66% 0.093 12);
+  --rose-wash: oklch(36% 0.038 12.6);
+
+  --sage: oklch(78% 0.042 132);
+  --sage-deep: oklch(66% 0.048 133);
+  --sage-wash: oklch(34% 0.026 131.8);
+
+  --gold: oklch(81% 0.1 83);
+  --gold-deep: oklch(70% 0.104 79);
+  --gold-wash: oklch(31% 0.03 68);
+
+  --grain-blend: overlay;
+  --grain-strength: 0.2;
+  --fibre-strength: 0.12;
+  --tape-alpha: 26%;
+  --tape-stripe: oklch(100% 0 0 / 0.06);
+  --tape-blend: screen;
+
+  --lift-1: 0 1px 2px oklch(10% 0.01 60 / 0.4);
+  --lift-2: 0 2px 4px oklch(10% 0.01 60 / 0.4), 0 10px 24px -8px oklch(10% 0.01 60 / 0.55);
+  --lift-3: 0 3px 6px oklch(10% 0.01 60 / 0.45), 0 18px 40px -10px oklch(10% 0.01 60 / 0.6);
+
+  --vignette: oklch(8% 0.008 60 / 0.5);
+  /* The bulb itself, thrown across the top of the page. */
+  --glow: oklch(78% 0.07 78 / 0.09);
+
+  --on-accent: oklch(17% 0.014 40);
+  --card-sheen: oklch(100% 0 0 / 0.035);
+}

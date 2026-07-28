@@ -1,0 +1,908 @@
+{
+  "meta": {
+    "person1": "Max",
+    "person2": "Alex"
+  },
+  "categories": [
+    {
+      "id": "getting-to-know",
+      "name": "Getting to Know",
+      "description": "The deeper get-to-know-you questions.",
+      "questions": [
+        {
+          "id": "gtk-001",
+          "text": "What's a small thing you learned about me recently that surprised you?"
+        },
+        {
+          "id": "gtk-002",
+          "text": "What's a part of me you feel like you understand better than anyone else does?"
+        },
+        {
+          "id": "gtk-003",
+          "text": "What's something you've never said out loud but want me to know about you?"
+        },
+        {
+          "id": "gtk-004",
+          "text": "If you had to explain what makes us us to a stranger, where would you start?"
+        },
+        {
+          "id": "gtk-005",
+          "text": "What's a version of me from the past you wish you'd gotten to meet?"
+        },
+        {
+          "id": "gtk-006",
+          "text": "What do you think I see when I look at you that you can’t see yourself?"
+        },
+        {
+          "id": "gtk-007",
+          "text": "What's a question you've always wanted to ask me but never have?"
+        },
+        {
+          "id": "gtk-008",
+          "text": "When did you stop guarding yourself around me?"
+        },
+        {
+          "id": "gtk-009",
+          "text": "What's a fear about us you've been quietly carrying?"
+        },
+        {
+          "id": "gtk-010",
+          "text": "What do you know now about loving me that you didn't at the start?"
+        },
+        {
+          "id": "gtk-011",
+          "text": "What's something I do that you find yourself telling other people about?"
+        },
+        {
+          "id": "gtk-012",
+          "text": "When do you feel the most like yourself with me?"
+        },
+        {
+          "id": "gtk-013",
+          "text": "What's a boundary of mine you've come to respect even if you didn't get it at first?"
+        },
+        {
+          "id": "gtk-014",
+          "text": "What's something you're working on becoming for me?"
+        },
+        {
+          "id": "gtk-015",
+          "text": "What's a topic you could talk about for an hour and never get bored?"
+        },
+        {
+          "id": "gtk-016",
+          "text": "What's a side of me you don't think I show many people?"
+        },
+        {
+          "id": "gtk-017",
+          "text": "What's a belief you've completely changed your mind about since we met?"
+        },
+        {
+          "id": "gtk-018",
+          "text": "What's the quickest way to cheer me up when I'm in a bad mood?"
+        },
+        {
+          "id": "gtk-019",
+          "text": "What do you think is my biggest strength that I never give myself credit for?"
+        },
+        {
+          "id": "gtk-020",
+          "text": "What's something you were nervous to tell me early on?"
+        },
+        {
+          "id": "gtk-021",
+          "text": "What's a compliment I gave you that you've never forgotten?"
+        },
+        {
+          "id": "gtk-022",
+          "text": "What's a small way I've changed since we got together?"
+        },
+        {
+          "id": "gtk-023",
+          "text": "If I could instantly master one skill, what do you think I'd pick?"
+        },
+        {
+          "id": "gtk-024",
+          "text": "What's a habit of mine you found weird at first but now find endearing?"
+        },
+        {
+          "id": "gtk-025",
+          "text": "What part of your day do you most want to tell me about?"
+        },
+        {
+          "id": "gtk-026",
+          "text": "What's a value we share that you think holds us together?"
+        },
+        {
+          "id": "gtk-027",
+          "text": "What do you wish I asked you about more often?"
+        }
+      ]
+    },
+    {
+      "id": "fun",
+      "name": "Fun and Silly",
+      "description": "Playful hypotheticals and would-you-rathers.",
+      "questions": [
+        {
+          "id": "fun-001",
+          "text": "If we got one shared superpower but had to agree on it, what are we picking?"
+        },
+        {
+          "id": "fun-002",
+          "text": "If I got turned into an animal tomorrow, which one am I, and are you keeping me?"
+        },
+        {
+          "id": "fun-003",
+          "text": "What's the most unhinged thing you'd do to make me laugh right now?"
+        },
+        {
+          "id": "fun-004",
+          "text": "We're stuck on a deserted island. Who cracks first and what does that look like?"
+        },
+        {
+          "id": "fun-005",
+          "text": "If our relationship had a theme song that played every time I walked in, what would it be?"
+        },
+        {
+          "id": "fun-006",
+          "text": "If you could put one embarrassing photo of me on a billboard, which one?"
+        },
+        {
+          "id": "fun-007",
+          "text": "You get to rename me. What ridiculous name are you giving me?"
+        },
+        {
+          "id": "fun-008",
+          "text": "What's a completely useless talent of mine you secretly love?"
+        },
+        {
+          "id": "fun-009",
+          "text": "If we swapped bodies for a day, what's the first thing you'd do as me?"
+        },
+        {
+          "id": "fun-010",
+          "text": "We win the lottery on a Tuesday. Walk me through the rest of that day."
+        },
+        {
+          "id": "fun-011",
+          "text": "What's the pettiest hill you'd die on, and would I be on it with you?"
+        },
+        {
+          "id": "fun-012",
+          "text": "If we started a business together and it was doomed to fail, what would it be?"
+        },
+        {
+          "id": "fun-013",
+          "text": "What emoji describes our relationship, and why is it that one?"
+        },
+        {
+          "id": "fun-014",
+          "text": "What nickname of mine are you a little embarrassed to say in public?"
+        },
+        {
+          "id": "fun-015",
+          "text": "If we had to survive a zombie apocalypse, what's your read on our odds?"
+        },
+        {
+          "id": "fun-016",
+          "text": "If I started a wildly specific YouTube channel, what would it be about?"
+        },
+        {
+          "id": "fun-017",
+          "text": "What's the weirdest thing you'd fight a stranger over for me?"
+        },
+        {
+          "id": "fun-018",
+          "text": "We get one week to live anywhere on earth for free. Where are we going?"
+        },
+        {
+          "id": "fun-019",
+          "text": "If our love story got made into a movie, who's playing us and is it a comedy?"
+        },
+        {
+          "id": "fun-020",
+          "text": "What's my most predictable move that you can see coming a mile away?"
+        },
+        {
+          "id": "fun-021",
+          "text": "Describe me using only food. Go."
+        },
+        {
+          "id": "fun-022",
+          "text": "What's a dumb hill we'd both defend together against the whole world?"
+        },
+        {
+          "id": "fun-023",
+          "text": "If we had a band, what's the name and what's our one hit song about?"
+        },
+        {
+          "id": "fun-024",
+          "text": "What would the title of my autobiography be?"
+        },
+        {
+          "id": "fun-025",
+          "text": "What's the most chaotic date idea you'd actually take me on?"
+        },
+        {
+          "id": "fun-026",
+          "text": "We're ghosts haunting one place forever. Where are we haunting and why?"
+        },
+        {
+          "id": "fun-027",
+          "text": "If you had to sum up my personality as a weather forecast, what's today's report?"
+        }
+      ]
+    },
+    {
+      "id": "late",
+      "name": "Late Night Talks",
+      "description": "Dreams, fears, and the vulnerable stuff.",
+      "questions": [
+        {
+          "id": "late-001",
+          "text": "What's something you're afraid to want because you're scared to lose it?"
+        },
+        {
+          "id": "late-002",
+          "text": "What's a moment you felt truly safe, and was I part of it?"
+        },
+        {
+          "id": "late-003",
+          "text": "What's a weight you've been carrying that you haven't let me help with yet?"
+        },
+        {
+          "id": "late-004",
+          "text": "When you picture being genuinely happy five years from now, what's around you?"
+        },
+        {
+          "id": "late-005",
+          "text": "What's a part of yourself you're still learning to accept?"
+        },
+        {
+          "id": "late-006",
+          "text": "What do you need more of from me that you haven't asked for?"
+        },
+        {
+          "id": "late-007",
+          "text": "What's a way you've grown that you don't think I've noticed yet?"
+        },
+        {
+          "id": "late-008",
+          "text": "What's a memory that still makes your chest ache in a good way?"
+        },
+        {
+          "id": "late-009",
+          "text": "What are you most proud of surviving?"
+        },
+        {
+          "id": "late-010",
+          "text": "What's something you hope is still true about us when we're old?"
+        },
+        {
+          "id": "late-011",
+          "text": "What's a truth about us you feel but we've never said out loud?"
+        },
+        {
+          "id": "late-012",
+          "text": "What's a conversation we keep avoiding that you think we should have?"
+        },
+        {
+          "id": "late-013",
+          "text": "When do you feel most understood by me?"
+        },
+        {
+          "id": "late-014",
+          "text": "What's something you're still healing from that you don't talk about much?"
+        },
+        {
+          "id": "late-015",
+          "text": "When do you feel closest to me without either of us saying anything?"
+        },
+        {
+          "id": "late-016",
+          "text": "What's a fear you have about the future that you keep to yourself?"
+        },
+        {
+          "id": "late-017",
+          "text": "What's a version of your life you're quietly grieving that you didn't choose?"
+        },
+        {
+          "id": "late-018",
+          "text": "When was the last time you felt truly seen, and who was there?"
+        },
+        {
+          "id": "late-019",
+          "text": "What do you wish I understood about you on your hard days?"
+        },
+        {
+          "id": "late-020",
+          "text": "What's something you're proud of that no one really claps for?"
+        },
+        {
+          "id": "late-021",
+          "text": "What's a comfort you reach for when everything feels like too much?"
+        },
+        {
+          "id": "late-022",
+          "text": "What's a hope for us you hold quietly because saying it feels too big?"
+        },
+        {
+          "id": "late-023",
+          "text": "What does feeling loved by me actually look like day to day?"
+        },
+        {
+          "id": "late-024",
+          "text": "What's a lesson from your past you don't want to repeat with me?"
+        },
+        {
+          "id": "late-025",
+          "text": "What's something you needed to hear as a kid that you still need now?"
+        },
+        {
+          "id": "late-026",
+          "text": "When you imagine us years from now, what are you most hoping we kept?"
+        }
+      ]
+    },
+    {
+      "id": "long-distance",
+      "name": "Long Distance",
+      "description": "The missing-you and staying-close questions.",
+      "questions": [
+        {
+          "id": "ld-001",
+          "text": "What's the first thing you want to do the moment we're in the same room again?"
+        },
+        {
+          "id": "ld-002",
+          "text": "What's a small ordinary thing you'd give anything to do with me right now?"
+        },
+        {
+          "id": "ld-003",
+          "text": "What's the hardest part of the distance you don't usually admit to me?"
+        },
+        {
+          "id": "ld-004",
+          "text": "What's a moment today you wished I was there for?"
+        },
+        {
+          "id": "ld-005",
+          "text": "What does missing me actually feel like for you, in your body?"
+        },
+        {
+          "id": "ld-006",
+          "text": "What's a habit of mine you miss most when we're apart?"
+        },
+        {
+          "id": "ld-007",
+          "text": "What do you do on your own to feel closer to me?"
+        },
+        {
+          "id": "ld-008",
+          "text": "If I could teleport to you for exactly one hour tonight, how would we spend it?"
+        },
+        {
+          "id": "ld-009",
+          "text": "What's something the distance has taught you about us that being close never could?"
+        },
+        {
+          "id": "ld-010",
+          "text": "What's the text from me that always makes the day better?"
+        },
+        {
+          "id": "ld-011",
+          "text": "What's a countdown you're secretly keeping?"
+        },
+        {
+          "id": "ld-012",
+          "text": "What's the ritual we do across the distance that you'd be lost without?"
+        },
+        {
+          "id": "ld-013",
+          "text": "What's a photo of me you keep coming back to?"
+        },
+        {
+          "id": "ld-014",
+          "text": "What's a normal couple thing you crave doing with me that we can't right now?"
+        },
+        {
+          "id": "ld-015",
+          "text": "What part of your day makes you wish you could just turn and tell me something?"
+        },
+        {
+          "id": "ld-016",
+          "text": "What's the hardest time of day to be apart?"
+        },
+        {
+          "id": "ld-017",
+          "text": "What's a small ritual we could start that would make the distance feel shorter?"
+        },
+        {
+          "id": "ld-018",
+          "text": "What's the last thing that happened that you couldn't wait to tell me?"
+        },
+        {
+          "id": "ld-019",
+          "text": "What's a sound that instantly puts me in the room with you?"
+        },
+        {
+          "id": "ld-020",
+          "text": "What do you miss about just being in the same room as me?"
+        },
+        {
+          "id": "ld-021",
+          "text": "If we got one surprise ordinary day together this week, how would we waste it?"
+        },
+        {
+          "id": "ld-022",
+          "text": "What keeps you going on the days the distance feels the heaviest?"
+        },
+        {
+          "id": "ld-023",
+          "text": "What's the first place you want to take me when I visit?"
+        },
+        {
+          "id": "ld-024",
+          "text": "What's something you're saving up to do with me in person?"
+        },
+        {
+          "id": "ld-025",
+          "text": "What's a way I make you feel close even when I'm far?"
+        },
+        {
+          "id": "ld-026",
+          "text": "What's a promise about the distance you want to make to me right now?"
+        }
+      ]
+    },
+    {
+      "id": "us",
+      "name": "Us",
+      "description": "Memories, inside jokes, and your story.",
+      "questions": [
+        {
+          "id": "us-001",
+          "text": "What's the exact moment you knew this was something real?"
+        },
+        {
+          "id": "us-003",
+          "text": "When did you realize you were all in?"
+        },
+        {
+          "id": "us-004",
+          "text": "What's an inside joke of ours you hope we still laugh at in forty years?"
+        },
+        {
+          "id": "us-005",
+          "text": "What's the hardest thing we've gotten through together, and what did it teach you about us?"
+        },
+        {
+          "id": "us-006",
+          "text": "What's a tiny moment with me that meant more than I probably realized?"
+        },
+        {
+          "id": "us-007",
+          "text": "What's a photo of us that lives in your head?"
+        },
+        {
+          "id": "us-008",
+          "text": "What's the first thing you noticed about me that you still think about?"
+        },
+        {
+          "id": "us-009",
+          "text": "When have you been the proudest to be with me?"
+        },
+        {
+          "id": "us-010",
+          "text": "What's a story about us you love telling other people?"
+        },
+        {
+          "id": "us-011",
+          "text": "What made you take a chance on me?"
+        },
+        {
+          "id": "us-012",
+          "text": "What's a small habit we've built that you low-key treasure?"
+        },
+        {
+          "id": "us-013",
+          "text": "What's the moment you'd freeze and live in forever if you could?"
+        },
+        {
+          "id": "us-014",
+          "text": "What's a moment you realized we were actually really good together?"
+        },
+        {
+          "id": "us-015",
+          "text": "What's the first time I made you feel truly special?"
+        },
+        {
+          "id": "us-016",
+          "text": "What's a fight we got through that made you love me more?"
+        },
+        {
+          "id": "us-017",
+          "text": "What's a tiny tradition we have that you'd be sad to lose?"
+        },
+        {
+          "id": "us-018",
+          "text": "What's something people don't get about us that you love anyway?"
+        },
+        {
+          "id": "us-019",
+          "text": "What's a moment you knew I'd show up for you no matter what?"
+        },
+        {
+          "id": "us-020",
+          "text": "What's the exact moment I felt like home?"
+        },
+        {
+          "id": "us-021",
+          "text": "What's a nickname or a phrase of ours that would confuse literally everyone else?"
+        },
+        {
+          "id": "us-022",
+          "text": "What's a picture of us that isn't your favorite but means the most?"
+        },
+        {
+          "id": "us-023",
+          "text": "What surprised you most about who I turned out to be?"
+        },
+        {
+          "id": "us-024",
+          "text": "What's something small I did early on that hooked you?"
+        },
+        {
+          "id": "us-025",
+          "text": "What's a moment you'd point to if someone asked why you chose me?"
+        },
+        {
+          "id": "us-026",
+          "text": "What's the story of us you'd want our future kids to hear?"
+        },
+        {
+          "id": "us-027",
+          "text": "What is the smallest thing that would tell a stranger we have been together a while?"
+        }
+      ]
+    },
+    {
+      "id": "future",
+      "name": "The Future",
+      "description": "Plans, closing the distance, and the life you are building.",
+      "questions": [
+        {
+          "id": "future-001",
+          "text": "What's a tradition you want us to build that's completely our own?"
+        },
+        {
+          "id": "future-002",
+          "text": "What does closing the distance look like in your head?"
+        },
+        {
+          "id": "future-003",
+          "text": "What's a promise you want to make me about the life we're building?"
+        },
+        {
+          "id": "future-004",
+          "text": "Where do you picture us waking up on an ordinary morning ten years from now?"
+        },
+        {
+          "id": "future-005",
+          "text": "What's a dream you have for us that you've been a little afraid to say?"
+        },
+        {
+          "id": "future-006",
+          "text": "What's the first home we make together going to feel like?"
+        },
+        {
+          "id": "future-007",
+          "text": "What kind of partner do you want to be for me as we grow?"
+        },
+        {
+          "id": "future-008",
+          "text": "What's a trip we have to take together before anything else?"
+        },
+        {
+          "id": "future-009",
+          "text": "What's something you want us to always protect, no matter how life changes?"
+        },
+        {
+          "id": "future-010",
+          "text": "When you imagine our future, what small everyday moment are you most looking forward to?"
+        },
+        {
+          "id": "future-011",
+          "text": "What do you hope never changes about us?"
+        },
+        {
+          "id": "future-012",
+          "text": "What's a fear about the future you want us to face as a team?"
+        },
+        {
+          "id": "future-014",
+          "text": "What's the first big thing you want us to do once we're finally in the same place?"
+        },
+        {
+          "id": "future-015",
+          "text": "What does an ordinary perfect Sunday for us look like someday?"
+        },
+        {
+          "id": "future-016",
+          "text": "What's a goal you have for us that you haven't said out loud yet?"
+        },
+        {
+          "id": "future-017",
+          "text": "What's a place you want us to go back to again and again over the years?"
+        },
+        {
+          "id": "future-018",
+          "text": "What do you hope we're still doing together when we're seventy?"
+        },
+        {
+          "id": "future-021",
+          "text": "What's something you want us to be brave about together?"
+        },
+        {
+          "id": "future-022",
+          "text": "If we made one promise today to protect us ten years from now, what would it be?"
+        },
+        {
+          "id": "future-023",
+          "text": "What part of our future are you most excited for?"
+        },
+        {
+          "id": "future-024",
+          "text": "What's a way you want to keep choosing me every day?"
+        },
+        {
+          "id": "future-025",
+          "text": "What's a small dream that would mean we made it?"
+        },
+        {
+          "id": "future-026",
+          "text": "What's a version of growing old with me you can't wait for?"
+        },
+        {
+          "id": "future-027",
+          "text": "What is the first thing you want to unpack in a place that is ours?"
+        },
+        {
+          "id": "future-028",
+          "text": "What do you want our Friday nights to look like in five years?"
+        },
+        {
+          "id": "future-029",
+          "text": "What is something you want us to get good at together?"
+        }
+      ]
+    },
+    {
+      "id": "flirty",
+      "name": "Flirty",
+      "description": "Romantic and a little bold. Kept tasteful.",
+      "questions": [
+        {
+          "id": "flirty-001",
+          "text": "What's the thing I do that you'd never admit drives you a little crazy in the best way?"
+        },
+        {
+          "id": "flirty-002",
+          "text": "What's the first thing you're doing when we finally close the distance? Keep it PG if you must."
+        },
+        {
+          "id": "flirty-004",
+          "text": "What's a look I give you that you feel in your stomach?"
+        },
+        {
+          "id": "flirty-005",
+          "text": "Describe the exact way you want me to greet you at the airport."
+        },
+        {
+          "id": "flirty-007",
+          "text": "What's the most attractive thing about me that has nothing to do with how I look?"
+        },
+        {
+          "id": "flirty-008",
+          "text": "What's a moment with me you replay when you're missing me at night?"
+        },
+        {
+          "id": "flirty-009",
+          "text": "If I showed up at your door right now, what happens first?"
+        },
+        {
+          "id": "flirty-010",
+          "text": "What's something you want more of from me that makes you a little shy to ask?"
+        },
+        {
+          "id": "flirty-011",
+          "text": "What's the most romantic thing you've thought about doing for me but haven't yet?"
+        },
+        {
+          "id": "flirty-012",
+          "text": "What's your favorite way I say your name?"
+        },
+        {
+          "id": "flirty-014",
+          "text": "What's your favorite way I say I love you without saying it?"
+        },
+        {
+          "id": "flirty-015",
+          "text": "What's the cutest thing I do that I have no idea is cute?"
+        },
+        {
+          "id": "flirty-016",
+          "text": "If you could relive our first kiss, would you change anything?"
+        },
+        {
+          "id": "flirty-017",
+          "text": "What's a photo of me that you low-key show off to people?"
+        },
+        {
+          "id": "flirty-018",
+          "text": "What's your favorite thing to do that's just the two of us?"
+        },
+        {
+          "id": "flirty-019",
+          "text": "What's a compliment about me you think but don't say enough?"
+        },
+        {
+          "id": "flirty-020",
+          "text": "What's the most butterflies I've ever given you?"
+        },
+        {
+          "id": "flirty-021",
+          "text": "What's a date we've been on that you'd do again in a heartbeat?"
+        },
+        {
+          "id": "flirty-022",
+          "text": "What's something I do that makes you feel the most wanted?"
+        },
+        {
+          "id": "flirty-023",
+          "text": "What's a moment with me you'd frame and put on the wall?"
+        },
+        {
+          "id": "flirty-024",
+          "text": "What's your favorite thing about falling asleep or waking up talking to me?"
+        },
+        {
+          "id": "flirty-025",
+          "text": "What's the smallest gesture from me that means the most to you?"
+        },
+        {
+          "id": "flirty-026",
+          "text": "What is the last thing I did that you thought about again later?"
+        },
+        {
+          "id": "flirty-027",
+          "text": "What would you want me to interrupt you for?"
+        },
+        {
+          "id": "flirty-028",
+          "text": "What is a small thing that would turn an ordinary evening with me into a date?"
+        },
+        {
+          "id": "flirty-029",
+          "text": "What is the thing you would miss first if I stopped doing it?"
+        }
+      ]
+    },
+    {
+      "id": "spicy",
+      "name": "Spicy",
+      "description": "Turn up the heat. Bold and flirty, kept tasteful.",
+      "questions": [
+        {
+          "id": "spicy-005",
+          "text": "What's the most tension you've ever felt with me in a room full of other people?"
+        },
+        {
+          "id": "spicy-006",
+          "text": "What do I wear that you wish I'd wear a lot more often?"
+        },
+        {
+          "id": "spicy-007",
+          "text": "What's a way I touch you that gets to you more than I know?"
+        },
+        {
+          "id": "spicy-008",
+          "text": "Where's the boldest place you've ever wanted to kiss me?"
+        },
+        {
+          "id": "spicy-010",
+          "text": "Describe the exact moment you first wanted me."
+        },
+        {
+          "id": "spicy-012",
+          "text": "What's the fastest way I could turn an ordinary night into one you'd remember?"
+        },
+        {
+          "id": "spicy-013",
+          "text": "What's a sound I make that you think about later?"
+        },
+        {
+          "id": "spicy-017",
+          "text": "What's your favorite thing about the way I kiss you?"
+        },
+        {
+          "id": "spicy-018",
+          "text": "What's something you find surprisingly hot that most people wouldn't expect?"
+        },
+        {
+          "id": "spicy-019",
+          "text": "What's a memory of us that you'd never tell your friends the full version of?"
+        },
+        {
+          "id": "spicy-023",
+          "text": "What's a small change of scenery that would make a night with me unforgettable?"
+        },
+        {
+          "id": "spicy-025",
+          "text": "What's an outfit of mine that stops you in your tracks?"
+        },
+        {
+          "id": "spicy-027",
+          "text": "Whisper the thing you'd never say out loud in public."
+        },
+        {
+          "id": "spicy-028",
+          "text": "Would you rather I tell you exactly what I want, or make you work it out?"
+        },
+        {
+          "id": "spicy-029",
+          "text": "Slow, or not able to wait? Pick one."
+        },
+        {
+          "id": "spicy-030",
+          "text": "Would you rather hear it out loud or just catch the look?"
+        },
+        {
+          "id": "spicy-031",
+          "text": "Would you rather be the one asking or the one answering tonight?"
+        },
+        {
+          "id": "spicy-032",
+          "text": "What did the text you deleted say?"
+        },
+        {
+          "id": "spicy-033",
+          "text": "Tell me the fantasy you'd normally talk around."
+        },
+        {
+          "id": "spicy-034",
+          "text": "What have you been hinting at that you've never just said?"
+        },
+        {
+          "id": "spicy-035",
+          "text": "What do you want more of, in plain terms?"
+        },
+        {
+          "id": "spicy-036",
+          "text": "What are you thinking right now that you wouldn't put in writing?"
+        },
+        {
+          "id": "spicy-037",
+          "text": "What's a thought about me you've had today that you kept to yourself?"
+        },
+        {
+          "id": "spicy-038",
+          "text": "What would you want me to say to you right now if no one else could hear?"
+        },
+        {
+          "id": "spicy-039",
+          "text": "What do you want from me in the next ten minutes?"
+        },
+        {
+          "id": "spicy-040",
+          "text": "What's one rule we should break the next time we're in the same room?"
+        },
+        {
+          "id": "spicy-041",
+          "text": "What's the first thing you'd want if we had an hour and nowhere to be?"
+        }
+      ]
+    }
+  ]
+}
