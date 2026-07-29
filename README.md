@@ -95,11 +95,18 @@ which is why the GitHub route above is better in the long run.
 
 ## Making it yours
 
-**Add a photo.** Drop a picture at `public/us.jpg` and it appears in the polaroid
-frame on the home screen. Any photo works; it gets cropped to a 4:3 rectangle, so
-something roughly landscape looks best. Until there is a file there, the frame
-holds a drawing instead. Nothing to configure, and nothing breaks if you never
-add one.
+**Add photos.** Drop image files into `src/photos/`. Any number, any filenames,
+jpg/png/webp. The build finds them on its own, so there is no list to keep in
+sync. With one photo the polaroid just shows it; with more than one it fades
+between them every 7 seconds and shows a dot per photo underneath. Tapping the
+polaroid opens the current one full size.
+
+They are sorted by filename, so name them `01-sunset.jpg`, `02-snow.jpg` and so
+on if you care about the order. Each is cropped to a square from the centre, so
+whatever matters should be near the middle of the frame. With no files in there
+at all, the frame falls back to a drawing and nothing breaks.
+
+To change how long each photo holds, edit `HOLD_MS` in `src/lib/photos.js`.
 
 **Change the words.** `src/personal.js` holds the title, the line above it, the
 intro, the polaroid caption, and the note at the bottom of the home screen. It is
@@ -127,11 +134,13 @@ src/
   lib/deck.js            shuffling, and dealing without repeats
   lib/hand.js            the stable "placed by hand" angles and rough edges
   lib/categories.js      each category's colour and drawing
+  lib/photos.js          finds everything in src/photos, sets the 7s timing
+  photos/                your photos; drop files in, they appear
   components/            the two screens and the small scrapbook pieces
   styles/tokens.css      colours, type scale, spacing, paper texture
 question-style-guide.md  how every question has to sound
 REFILL.md                the prompt for adding more
-public/                  favicon, and us.jpg if you add one
+public/                  favicon
 ```
 
 Questions never repeat until the whole stack has been dealt, then it reshuffles

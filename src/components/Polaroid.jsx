@@ -1,9 +1,6 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { photos, HOLD_MS } from '../lib/photos.js'
 import Tape from './Tape.jsx'
-
-// Drop a photo at public/us.jpg and it appears here. No config, no code change.
-// Until then the frame holds a drawing rather than a grey box.
-const photoUrl = `${import.meta.env.BASE_URL}us.jpg`
 
 function Waiting() {
   return (
@@ -46,22 +43,47 @@ function Waiting() {
 }
 
 export default function Polaroid({ caption }) {
-  const [status, setStatus] = useState('looking')
+  const [index, setIndex] = useState(0)
+  // Only photos that have been reached get an <img>, plus the next one so it is
+  // already cached when its turn comes. Mounting all of them up front would
+  // download the whole album on first paint.
+  const [mounted, setMounted] = useState(() => new Set([0, 1]))
+  const [paused, setPaused] = useState(false)
   const dialog = useRef(null)
 
-  const hasPhoto = status === 'ready'
+  const hasPhotos = photos.length > 0
+  const rotates = photos.length > 1
+
+  useEffect(() => {
+    if (!rotates || paused) return undefined
+    // An auto-advancing image is motion. If the reader has asked for less of it,
+    // the photo simply stays put.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+
+    const timer = setInterval(() => {
+      setIndex((current) => {
+        const next = (current + 1) % photos.length
+        setMounted((seen) => new Set(seen).add(next).add((next + 1) % photos.length))
+        return next
+      })
+    }, HOLD_MS)
+    return () => clearInterval(timer)
+  }, [rotates, paused])
 
   const frame = (
     <>
-      <Waiting />
-      <img
-        className={`polaroid__photo${hasPhoto ? ' is-ready' : ''}`}
-        src={photoUrl}
-        alt="Max and Alex"
-        aria-hidden={!hasPhoto}
-        onLoad={() => setStatus('ready')}
-        onError={() => setStatus('missing')}
-      />
+      {!hasPhotos && <Waiting />}
+      {photos.map((src, i) =>
+        mounted.has(i) ? (
+          <img
+            key={src}
+            className={`polaroid__photo${i === index ? ' is-ready' : ''}`}
+            src={src}
+            alt={rotates ? `Max and Alex, photo ${i + 1}` : 'Max and Alex'}
+            aria-hidden={i !== index}
+          />
+        ) : null,
+      )}
       <span className="polaroid__corner polaroid__corner--tl" aria-hidden="true" />
       <span className="polaroid__corner polaroid__corner--br" aria-hidden="true" />
     </>
@@ -69,16 +91,23 @@ export default function Polaroid({ caption }) {
 
   return (
     <>
-      <figure className="polaroid">
+      <figure
+        className="polaroid"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         <Tape seed="polaroid" tone="gold" width={92} angle={-7} y={-16} x="42%" />
 
-        {/* Only interactive once there is a real photo behind it. Enlarging the
-            placeholder drawing would be a promise the frame cannot keep. */}
-        {hasPhoto ? (
+        {hasPhotos ? (
           <button
             type="button"
             className="polaroid__frame polaroid__frame--open"
-            onClick={() => dialog.current?.showModal()}
+            onClick={() => {
+              setPaused(true)
+              dialog.current?.showModal()
+            }}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
             aria-label="See the photo bigger"
           >
             {frame}
@@ -88,13 +117,20 @@ export default function Polaroid({ caption }) {
         )}
 
         <figcaption className="hand polaroid__caption">{caption}</figcaption>
+
+        {rotates && (
+          <span className="polaroid__dots" aria-hidden="true">
+            {photos.map((src, i) => (
+              <span key={src} className={`polaroid__dot${i === index ? ' is-on' : ''}`} />
+            ))}
+          </span>
+        )}
       </figure>
 
-      {/* Native dialog: Escape, focus trapping and the top layer all come free,
-          which is a lot of fiddly behaviour not to have to hand-roll. */}
       <dialog
         ref={dialog}
         className="lightbox"
+        onClose={() => setPaused(false)}
         onClick={(event) => {
           if (event.target === dialog.current) dialog.current.close()
         }}
@@ -110,7 +146,7 @@ export default function Polaroid({ caption }) {
       >
         <figure className="lightbox__paper">
           <Tape seed="lightbox" tone="gold" width={120} angle={-5} y={-18} x="46%" />
-          <img className="lightbox__photo" src={photoUrl} alt="Max and Alex" />
+          <img className="lightbox__photo" src={photos[index]} alt="Max and Alex" />
           <figcaption className="hand lightbox__caption">{caption}</figcaption>
         </figure>
         <button

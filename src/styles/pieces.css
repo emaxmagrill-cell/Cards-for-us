@@ -69,7 +69,7 @@
 
 .polaroid__photo {
   opacity: 0;
-  transition: opacity 800ms var(--ease-soft);
+  transition: opacity 900ms var(--ease-soft);
 }
 
 .polaroid__photo.is-ready {
@@ -188,6 +188,33 @@
 .lightbox__close:hover,
 .lightbox__close:focus-visible {
   background: oklch(100% 0 0 / 0.2);
+}
+
+/* Which photo you are on. Ink dots, not a carousel widget. */
+.polaroid__dots {
+  display: flex;
+  gap: 0.32rem;
+  justify-content: center;
+  padding-bottom: 0.75rem;
+}
+
+.polaroid__dot {
+  width: 5px;
+  height: 5px;
+  background: var(--ink-ghost);
+  border-radius: 50%;
+  transition:
+    background 500ms var(--ease-soft),
+    scale 500ms var(--ease-soft);
+}
+
+.polaroid__dot.is-on {
+  background: var(--rose-deep);
+  scale: 1.3;
+}
+
+.polaroid__caption:has(+ .polaroid__dots) {
+  padding-bottom: 0.3rem;
 }
 
 .polaroid__caption {
