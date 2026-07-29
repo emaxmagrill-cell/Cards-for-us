@@ -50,6 +50,33 @@
   text-wrap: balance;
 }
 
+/* The count, circled the way you would ring a date on a calendar. */
+.countdown {
+  display: flex;
+  gap: 0.45rem;
+  align-items: baseline;
+  margin-top: var(--s-4);
+  font-size: var(--step-1);
+  color: var(--rose-deep);
+}
+
+.countdown__number {
+  position: relative;
+  padding: 0.1em 0.34em 0.16em;
+  font-size: 1.22em;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.countdown__number::after {
+  content: '';
+  position: absolute;
+  inset: -0.16em -0.1em -0.2em;
+  pointer-events: none;
+  background: no-repeat center / 100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 42' preserveAspectRatio='none'%3E%3Cpath d='M35 4C18 2 6 11 5 21c-1 10 12 18 28 17 16-1 26-9 26-18C58 11 48 4 33 3' stroke='%23D4A857' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
 .masthead__intro {
   max-width: 33ch;
   font-size: var(--step-1);

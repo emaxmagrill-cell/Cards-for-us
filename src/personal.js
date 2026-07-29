@@ -13,6 +13,11 @@ export const personal = {
   // Handwritten caption under the polaroid on the home screen.
   photoCaption: 'us, soon',
 
+  // The next day you are in the same place, as 'YYYY-MM-DD'. The countdown on
+  // the home screen takes itself down the day after this passes, so it is never
+  // stale. Set the next one here, or null to hide it entirely.
+  nextVisit: '2026-08-06',
+
   // Sign-off at the bottom of the home screen.
   signoff: 'no wrong answers, no skipping the hard ones',
 }

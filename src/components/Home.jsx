@@ -1,5 +1,6 @@
 import { jitter, cutCorners } from '../lib/hand.js'
 import { lookFor } from '../lib/categories.js'
+import { countdownLabel } from '../lib/countdown.js'
 import { personal } from '../personal.js'
 import Tape from './Tape.jsx'
 import Glyph from './Glyph.jsx'
@@ -7,6 +8,7 @@ import Polaroid from './Polaroid.jsx'
 
 export default function Home({ categories, onPick }) {
   const total = categories.reduce((n, c) => n + (c.questions?.length ?? 0), 0)
+  const countdown = countdownLabel(personal.nextVisit)
 
   return (
     <>
@@ -21,6 +23,14 @@ export default function Home({ categories, onPick }) {
           <p className="masthead__intro rises" style={{ '--i': 2 }}>
             {personal.intro}
           </p>
+          {countdown && (
+            <p className="hand countdown rises" style={{ '--i': 3 }}>
+              {countdown.number !== null && (
+                <span className="countdown__number">{countdown.number}</span>
+              )}
+              {countdown.text}
+            </p>
+          )}
         </div>
         <div className="masthead__photo arrives" style={{ '--i': 3 }}>
           <Polaroid caption={personal.photoCaption} />
