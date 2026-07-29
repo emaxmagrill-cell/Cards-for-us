@@ -37,7 +37,7 @@
 .polaroid {
   --tilt: -2.4deg;
   position: relative;
-  width: min(58vw, 14.5rem);
+  width: min(72vw, 19rem);
   padding: 0.65rem 0.65rem 0;
   background: var(--card);
   border: 1px solid var(--card-edge);
@@ -47,9 +47,14 @@
 }
 
 .polaroid__frame {
+  display: block;
+  width: 100%;
+  padding: 0;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  /* A real Polaroid's image area is square, with a deeper border under it. It
+     also crops a portrait photo far better than a landscape frame does. */
+  aspect-ratio: 1 / 1;
   background: var(--paper-shade);
 }
 
@@ -90,6 +95,99 @@
   right: 0;
   bottom: 0;
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.polaroid__frame--open {
+  cursor: zoom-in;
+  transition: filter var(--beat) var(--ease-soft);
+}
+
+.polaroid__frame--open:hover,
+.polaroid__frame--open:focus-visible {
+  filter: brightness(1.04);
+}
+
+/* --- Lightbox ------------------------------------------------------------
+   The photo, enlarged, still sitting on paper rather than floating on black.
+   ------------------------------------------------------------------------ */
+
+.lightbox {
+  max-width: 100vw;
+  max-height: 100svh;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  background: transparent;
+  border: none;
+  display: none;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr auto;
+  gap: var(--s-4);
+  padding: clamp(1rem, 5vw, 3rem) 1rem;
+}
+
+.lightbox::backdrop {
+  background: oklch(18% 0.014 62 / 0.82);
+  backdrop-filter: blur(3px);
+}
+
+.lightbox__paper {
+  position: relative;
+  align-self: center;
+  max-width: min(92vw, 34rem);
+  padding: clamp(0.7rem, 2.4vw, 1.1rem);
+  padding-bottom: 0;
+  margin: 0;
+  background: var(--card);
+  border-radius: 3px;
+  box-shadow: var(--lift-3);
+  rotate: -1.4deg;
+  animation: lightbox-in 420ms var(--ease-settle) backwards;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    scale: 0.94;
+    rotate: -4deg;
+  }
+}
+
+.lightbox__photo {
+  display: block;
+  width: 100%;
+  max-height: calc(100svh - 12rem);
+  object-fit: contain;
+  background: var(--paper-shade);
+}
+
+.lightbox__caption {
+  padding: 0.7rem 0.2rem 0.8rem;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.lightbox__close {
+  align-self: start;
+  padding: 0.5rem 1.1rem;
+  font-size: var(--step-0);
+  color: var(--paper);
+  background: oklch(100% 0 0 / 0.1);
+  border: 1px solid oklch(100% 0 0 / 0.28);
+  border-radius: 999px;
+  transition: background var(--beat) var(--ease-soft);
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  background: oklch(100% 0 0 / 0.2);
 }
 
 .polaroid__caption {
