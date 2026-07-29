@@ -42,7 +42,7 @@ function Waiting() {
   )
 }
 
-export default function Polaroid({ caption }) {
+export default function Polaroid() {
   const [index, setIndex] = useState(0)
   // Only photos that have been reached get an <img>, plus the next one so it is
   // already cached when its turn comes. Mounting all of them up front would
@@ -53,6 +53,7 @@ export default function Polaroid({ caption }) {
 
   const hasPhotos = photos.length > 0
   const rotates = photos.length > 1
+  const current = photos[index]
 
   useEffect(() => {
     if (!rotates || paused) return undefined
@@ -73,13 +74,13 @@ export default function Polaroid({ caption }) {
   const frame = (
     <>
       {!hasPhotos && <Waiting />}
-      {photos.map((src, i) =>
+      {photos.map((photo, i) =>
         mounted.has(i) ? (
           <img
-            key={src}
+            key={photo.file}
             className={`polaroid__photo${i === index ? ' is-ready' : ''}`}
-            src={src}
-            alt={rotates ? `Max and Alex, photo ${i + 1}` : 'Max and Alex'}
+            src={photo.src}
+            alt={photo.caption || 'Max and Alex'}
             aria-hidden={i !== index}
           />
         ) : null,
@@ -116,12 +117,20 @@ export default function Polaroid({ caption }) {
           <div className="polaroid__frame">{frame}</div>
         )}
 
-        <figcaption className="hand polaroid__caption">{caption}</figcaption>
+        <figcaption
+          key={current?.file}
+          className={`hand polaroid__caption${current?.captionIsEmoji ? ' is-emoji' : ''}`}
+        >
+          {current?.caption}
+        </figcaption>
 
         {rotates && (
           <span className="polaroid__dots" aria-hidden="true">
-            {photos.map((src, i) => (
-              <span key={src} className={`polaroid__dot${i === index ? ' is-on' : ''}`} />
+            {photos.map((photo, i) => (
+              <span
+                key={photo.file}
+                className={`polaroid__dot${i === index ? ' is-on' : ''}`}
+              />
             ))}
           </span>
         )}
@@ -146,8 +155,16 @@ export default function Polaroid({ caption }) {
       >
         <figure className="lightbox__paper">
           <Tape seed="lightbox" tone="gold" width={120} angle={-5} y={-18} x="46%" />
-          <img className="lightbox__photo" src={photos[index]} alt="Max and Alex" />
-          <figcaption className="hand lightbox__caption">{caption}</figcaption>
+          <img
+            className="lightbox__photo"
+            src={current?.src}
+            alt={current?.caption || 'Max and Alex'}
+          />
+          <figcaption
+            className={`hand lightbox__caption${current?.captionIsEmoji ? ' is-emoji' : ''}`}
+          >
+            {current?.caption}
+          </figcaption>
         </figure>
         <button
           type="button"

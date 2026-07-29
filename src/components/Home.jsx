@@ -33,7 +33,7 @@ export default function Home({ categories, onPick }) {
           )}
         </div>
         <div className="masthead__photo arrives" style={{ '--i': 3 }}>
-          <Polaroid caption={personal.photoCaption} />
+          <Polaroid />
         </div>
       </header>
 
